@@ -1,0 +1,190 @@
+/* frontend/src/App.css */
+
+/* --- Общие стили и фон --- */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* --- Стили для хедера (полная ширина) --- */
+.header-outer {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e4e6eb;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo a {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #000;
+  text-decoration: none;
+}
+
+.header-nav { display: flex; gap: 25px; }
+.header-nav a { text-decoration: none; color: #333; font-weight: 500; font-size: 1rem; }
+
+.header-actions button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+/* Добавьте это в App.css в конец стилей хедера */
+
+/* Убираем стандартное синее подчеркивание у всех ссылок в хедере */
+.header-inner a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Стили для логотипа */
+.header-logo a {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+/* Стили для навигационных ссылок */
+.header-nav a {
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent; /* Невидимая рамка для плавности */
+  transition: color 0.2s ease;
+}
+
+/* Стиль для АКТИВНОЙ ссылки (когда мы на этой странице) */
+.header-nav a.active {
+  color: #000;
+  font-weight: bold;
+}
+
+
+/* --- Стили для заголовка страницы (полная ширина) --- */
+.page-title-container {
+  padding: 20px 20px 30px 20px;
+  margin-bottom: 20px;
+}
+
+.page-title-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-title-content h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.page-title-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #65676b;
+}
+
+
+/* --- Контейнер для основного контента (центрированный) --- */
+.main-content-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.app-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.main-content { flex: 2; }
+.sidebar { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+
+
+/* --- Стили для виджетов (остаются почти без изменений) --- */
+.widget {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #e4e6eb;
+}
+
+.widget-title { margin-top: 0; margin-bottom: 20px; font-size: 1.2rem; }
+.widget-more { display: block; margin-top: 15px; color: #1877f2; text-decoration: none; font-weight: 500; }
+
+.event-item, .article-item, .trend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  gap: 15px;
+}
+.event-item:last-child, .article-item:last-child, .trend-item:last-child { margin-bottom: 0; }
+.event-date { font-size: 1rem; font-weight: 500; text-align: center; color: #1c1e21; background-color: #f0f2f5; border-radius: 6px; padding: 8px; min-width: 40px; }
+.event-date span { display: block; font-size: 0.8rem; font-weight: normal; color: #65676b; }
+.article-placeholder { width: 48px; height: 48px; background-color: #e4e6eb; border-radius: 6px; flex-shrink: 0; }
+p { margin: 0; }
+.event-details p, .article-details p, .trend-info p { font-weight: 500; }
+.event-details span, .article-details span, .trend-info span { font-size: 0.9rem; color: #65676b; }
+.trend-item { justify-content: space-between; }
+.trend-change { font-weight: 500; }
+
+/* Добавьте это в самый конец файла App.css */
+
+/* --- Стили для списка трендов --- */
+.trends-list {
+  list-style: none; /* Убираем стандартные маркеры */
+  padding-left: 0;
+  margin: 0;
+  counter-reset: trends-counter; /* Включаем свой счетчик */
+}
+
+.trends-list .trend-item {
+  counter-increment: trends-counter; /* Увеличиваем счетчик для каждого элемента */
+  display: flex;
+  align-items: flex-start;
+}
+
+.trends-list .trend-item::before {
+  content: counter(trends-counter); /* Отображаем номер */
+  font-size: 1rem;
+  font-weight: 500;
+  color: #65676b;
+  margin-right: 15px;
+  min-width: 20px; /* Чтобы текст не прыгал */
+  text-align: right;
+}
+
+.event-date {
+  background-color: #1877f2; /* Фирменный синий цвет */
+  color: #ffffff;             /* Белый цвет для текста */
+  border-radius: 8px;          /* Скругляем углы */
+  padding: 8px 12px;
+  min-width: 45px;
+  text-align: center;
+}
+.event-day {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;             /* Убеждаемся, что цвет текста белый */
+  line-height: 1.1;
+}
+.event-month {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #ffffff;            /* Убеждаемся, что цвет текста белый */
+}
+/* Убираем лишний отступ у последнего элемента в списках */
+.articles-list .article-item:last-child { margin-bottom: 0; }
+.events-list .event-item:last-child { margin-bottom: 0; }

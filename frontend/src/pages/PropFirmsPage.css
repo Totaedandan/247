@@ -1,0 +1,181 @@
+.prop-page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.prop-page-header {
+    margin-bottom: 30px;
+}
+
+.prop-page-header h1 {
+    font-size: 2rem;
+    margin: 0 0 10px 0;
+}
+
+.prop-page-header p {
+    font-size: 1rem;
+    color: #65676b;
+    margin: 0;
+}
+
+.prop-page-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.prop-page-sidebar {
+    flex: 1;
+    max-width: 280px;
+}
+
+.prop-page-main {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Стили для боковой панели с фильтрами */
+.filter-sidebar {
+    background-color: #fff;
+    border: 1px solid #e4e6eb;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-section h4 {
+    margin: 0 0 10px 0;
+}
+
+.filter-section label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.apply-filters-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Стили для карточки фирмы */
+.firm-card {
+    background-color: #fff;
+    border: 1px solid #e4e6eb;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.firm-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #f0f2f5;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.firm-info {
+    display: flex;
+    gap: 15px;
+}
+
+.firm-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.firm-name-section h2 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.firm-rating {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.firm-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #f0f2f5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.firm-price-section {
+    text-align: right;
+}
+
+.price-from {
+    font-size: 0.9rem;
+    color: #65676b;
+}
+
+.price-amount {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 2px 0;
+}
+
+.details-btn {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.details-link {
+    font-size: 0.9rem;
+    color: #65676b;
+    text-decoration: none;
+}
+
+.firm-card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.pros-cons-section h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px 0;
+}
+
+.pros-cons-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.pros-cons-section ul li {
+    margin-bottom: 5px;
+}
