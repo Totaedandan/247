@@ -11,6 +11,7 @@ import ForexFactoryPage from './pages/ForexFactoryPage';
 import PropFirmsPage from './pages/PropFirmsPage';
 import BeneficialPage from './pages/BeneficialPage';
 import ArticleDetailPage from './pages/ArticleDetailPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path="/articles/:slug" element={<ArticleDetailPage />} />
         </Routes>
         
-        {/* Footer, если он будет, тоже можно разместить здесь */}
+        <Footer /> {/* Футер будет на всех страницах */}
       </div>
     </Router>
   );

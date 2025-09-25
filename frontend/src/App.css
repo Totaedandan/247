@@ -2,78 +2,135 @@
 
 /* --- Общие стили и фон --- */
 body {
+  height: 100%;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   background-color: #f0f2f5;
 }
 
-/* --- Стили для хедера (полная ширина) --- */
-.header-outer {
-  background-color: #ffffff;
-  border-bottom: 1px solid #e4e6eb;
+/* =============================== */
+/* Header — centered container     */
+/* =============================== */
+
+:root{
+  --container:1240px;              /* нормальная ширина контейнера */
+  --ink:#0f172a;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --black:#000;
+  --btn:#3b3b3b;                   /* цвет тёмной кнопки */
+  --radius:10px;
 }
 
-.header-inner {
-  max-width: 1100px;
+/* каркас */
+.header-outer{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  /* ЦЕНТРИРОВАННЫЙ КОНТЕЙНЕР */
+  max-width: var(--container);
+  width: 100%;
   margin: 0 auto;
-  padding: 15px 20px;
+
+  /* комфортные отступы по краям */
+  padding: 12px 20px;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
 }
 
-.header-logo a {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #000;
-  text-decoration: none;
+/* логотип */
+.header-logo a{
+  font-weight:800;
+  font-size:1.25rem;               /* компактнее */
+  color:var(--black);
+  text-decoration:none;
 }
 
-.header-nav { display: flex; gap: 25px; }
-.header-nav a { text-decoration: none; color: #333; font-weight: 500; font-size: 1rem; }
-
-.header-actions button {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
+/* навигация */
+.header-nav{
+  display:flex; align-items:center; justify-content:center;
+  gap:22px;
+  flex: 1 1 auto;                   /* логотип слева, кнопки справа, меню в центре */
 }
-/* Добавьте это в App.css в конец стилей хедера */
-
-/* Убираем стандартное синее подчеркивание у всех ссылок в хедере */
-.header-inner a {
-  text-decoration: none;
-  color: #333;
+.header-nav a{
+  font-size:.95rem;
+  font-weight:600;
+  color:#3b3b3b;
+  text-decoration:none;
+  padding:4px 0;
+  border-bottom:2px solid transparent;
+  transition:color .15s ease, border-color .15s ease;
 }
-
-/* Стили для логотипа */
-.header-logo a {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #000;
+.header-nav a:hover{ color:var(--black); }
+.header-nav a.active{
+  color:var(--black);
+  font-weight:800;
 }
 
-/* Стили для навигационных ссылок */
-.header-nav a {
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 5px 0;
-  border-bottom: 2px solid transparent; /* Невидимая рамка для плавности */
-  transition: color 0.2s ease;
+/* блок кнопок — прижат к ПРАВОМУ КРАЮ КОНТЕЙНЕРА */
+.header-actions{
+  margin-left: auto;
+  display:flex; gap:10px; align-items:center;
 }
 
-/* Стиль для АКТИВНОЙ ссылки (когда мы на этой странице) */
-.header-nav a.active {
-  color: #000;
-  font-weight: bold;
+/* кнопки */
+.header-actions .btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:36px;
+  padding:0 14px;
+  border-radius:var(--radius);
+  font-size:.95rem;
+  font-weight:800;
+  line-height:1;
+  text-decoration:none;
+  cursor:pointer;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--black);
 }
 
+/* светлая — Войти */
+.header-actions .btn.btn-outline{
+  border-color:var(--black);
+  background:#fff;
+  color:var(--black);
+}
+.header-actions .btn.btn-outline:hover{
+  background:var(--black);
+  color:#fff;
+}
 
-/* --- Стили для заголовка страницы (полная ширина) --- */
+/* тёмная — Зарегистрироваться */
+.header-actions .btn.btn-primary{
+  background:var(--btn);
+  border-color:var(--btn);
+  color:#fff;
+}
+.header-actions .btn.btn-primary:hover{
+  filter:brightness(.95);
+}
+
+/* НЕ задаём общий цвет всем ссылкам, чтобы не перебивать кнопки */
+.header-inner a{ text-decoration:none; }
+
+/* адаптив */
+@media (max-width: 900px){
+  .header-inner{ padding:10px 16px; }
+  .header-nav{ gap:16px; }
+  .header-actions .btn{ height:34px; padding:0 12px; font-size:.9rem; }
+}
+@media (max-width: 640px){
+  .header-nav{ display:none; } /* убери строку, если меню должно быть видно на мобилке */
+}
+
+/* =============================== */
+/* Page Title                      */
+/* =============================== */
+
 .page-title-container {
   padding: 20px 20px 30px 20px;
   margin-bottom: 20px;
@@ -97,11 +154,22 @@ body {
 }
 
 
-/* --- Контейнер для основного контента (центрированный) --- */
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================== */
+/* Layout                          */
+/* =============================== */
+
 .main-content-wrapper {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
+  flex: 1;
 }
 
 .app-layout {
@@ -112,8 +180,10 @@ body {
 .main-content { flex: 2; }
 .sidebar { flex: 1; display: flex; flex-direction: column; gap: 20px; }
 
+/* =============================== */
+/* Widgets                         */
+/* =============================== */
 
-/* --- Стили для виджетов (остаются почти без изменений) --- */
 .widget {
   background-color: white;
   border-radius: 8px;
@@ -140,9 +210,10 @@ p { margin: 0; }
 .trend-item { justify-content: space-between; }
 .trend-change { font-weight: 500; }
 
-/* Добавьте это в самый конец файла App.css */
+/* =============================== */
+/* Trends list                     */
+/* =============================== */
 
-/* --- Стили для списка трендов --- */
 .trends-list {
   list-style: none; /* Убираем стандартные маркеры */
   padding-left: 0;
@@ -177,14 +248,139 @@ p { margin: 0; }
 .event-day {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ffffff;             /* Убеждаемся, что цвет текста белый */
+  color: #ffffff;             /* Белый текст */
   line-height: 1.1;
 }
 .event-month {
   font-size: 0.8rem;
   text-transform: uppercase;
-  color: #ffffff;            /* Убеждаемся, что цвет текста белый */
+  color: #ffffff;
 }
+
 /* Убираем лишний отступ у последнего элемента в списках */
 .articles-list .article-item:last-child { margin-bottom: 0; }
 .events-list .event-item:last-child { margin-bottom: 0; }
+
+
+/* =============================== */
+/* Footer                          */
+/* =============================== */
+
+:root{
+  --footer-container: 1240px;     /* ширина контейнера футера */
+  --foot-bg: #ececf2;             /* фон как на макете */
+}
+
+/* оболочка футера */
+.site-footer{
+  background: var(--foot-bg);
+  color: var(--ink);
+  margin-top: 40px;
+}
+
+/* верхняя часть — 4 колонки */
+.footer-inner{
+  max-width: var(--footer-container);
+  margin: 0 auto;
+  padding: 40px 20px 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1.4fr;   /* Бренд | Разделы | Информация | Подписка */
+  gap: 40px;
+}
+
+/* брендовая колонка */
+.f-col.brand .foot-logo{
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.f-col h4{
+  margin: 0 0 14px 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.foot-desc{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: .95rem;
+}
+
+/* ссылки */
+.foot-links{
+  list-style: none;
+  padding: 0; margin: 0;
+}
+.foot-links li{ margin-bottom: 10px; }
+.foot-links a{
+  color: var(--ink);
+  text-decoration: none;
+  font-size: .95rem;
+}
+.foot-links a:hover{ text-decoration: underline; }
+
+/* подписка */
+.f-col.subscribe .foot-desc{ margin-bottom: 8px; }
+.subscribe-form{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.subscribe-form input{
+  border: 0; outline: none;
+  padding: 12px 14px;
+  font-size: .95rem;
+}
+.subscribe-form button{
+  border: 0;
+  background: #000; color:#fff;
+  font-weight: 800;
+  padding: 0 16px;
+  font-size: .95rem;
+  cursor: pointer;
+}
+
+/* нижняя плашка */
+.footer-bottom{
+  background: var(--foot-bg);
+  border-top: 1px solid rgba(0,0,0,.06);
+}
+.footer-bottom-inner{
+  max-width: var(--footer-container);
+  margin: 0 auto;
+  padding: 14px 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.copyright{
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* соц-иконки */
+.socials{ display:flex; gap:16px; }
+.foot-social{
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: #e8e9f0;
+  display: inline-flex;
+  align-items:center; justify-content:center;
+  color:#555;
+  text-decoration:none;
+  transition: filter .15s ease;
+}
+.foot-social:hover{ filter: brightness(.9); }
+
+/* адаптив */
+@media (max-width: 960px){
+  .footer-inner{ grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+@media (max-width: 560px){
+  .footer-inner{ grid-template-columns: 1fr; }
+  .footer-bottom-inner{ flex-direction: column; align-items: flex-start; gap: 10px; }
+}

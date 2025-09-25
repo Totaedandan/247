@@ -47,6 +47,8 @@ class Article(models.Model):
     
     created_at = models.DateTimeField("Дата создания", default=timezone.now)
 
+    views = models.PositiveIntegerField(default=0)
+
     class Meta:
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
